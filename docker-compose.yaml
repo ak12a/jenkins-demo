@@ -16,6 +16,8 @@ services:
            context: centos
         networks: 
           - jenkins
+        volumes:
+         - "$PWD/db_backup.sh:/tmp/db_backup.sh"  
    database:
        container_name: db
        image: mysql:5.7
