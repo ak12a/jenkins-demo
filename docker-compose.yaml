@@ -1,0 +1,31 @@
+version: "3.3"
+services: 
+   jenkins:
+        container_name: jenkins
+        image: jenkins/jenkins:lts
+        ports: 
+         - "8080:8080"
+        volumes: 
+          - "$PWD/jenkins_home:/var/jenkins_home"
+        networks:
+           - jenkins
+   centos-ssh:
+        container_name: centos-ssh
+        image: centos-ssh
+        build:
+           context: centos
+        networks: 
+          - jenkins
+   database:
+       container_name: db
+       image: mysql:5.7
+       environment:
+           - "MYSQL_ROOT_PASSWORD=redhat"
+       volumes:
+          -   "$PWD/db_data:/var/lib/mysql"
+       networks:
+           - jenkins 
+networks:
+   jenkins:
+
+
