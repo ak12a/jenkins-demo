@@ -19,7 +19,17 @@ services:
         networks: 
           - jenkins
         volumes:
-         - "$PWD/db_backup.sh:/tmp/db_backup.sh"  
+         - "$PWD/db_backup.sh:/tmp/db_backup.sh"
+   web:
+      container_name: web
+      image: ansible-web 
+      build:
+          context: jenkins-ansible/web/
+      networks:
+         - jenkins
+      ports:
+         - "80:80"
+                  
    database:
        container_name: db
        image: mysql:5.7

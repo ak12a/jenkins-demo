@@ -6,7 +6,8 @@
 
 # Starts php process in background
 
-/usr/sbin/php-fpm -c /etc/php/fpm
+#/usr/sbin/php-fpm -c /etc/php/fpm
+/usr/sbin/php-fpm -c /etc/php-fpm.conf
 
 # Starts nginx daemon
 
