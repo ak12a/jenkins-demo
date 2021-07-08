@@ -20,17 +20,10 @@ RUN  yum -y install supervisor && yum clean all
 
 EXPOSE 80 443
 
-VOLUME /var/www/html /var/log/nginx /var/log/php-fpm /var/lib/php-fpm
+VOLUME /var/www/html /var/log/nginx /var/log/php-fpm /var/run/php-fpm
 RUN mkdir -p /var/log/supervisor
-COPY ./conf/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-#COPY ./conf/supervisord.conf /etc/supervisord.conf
 COPY ./conf/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./bin/start.sh /start.sh
 
-#COPY ./bin/start.sh /start.sh
-
-#RUN chmod +x /start.sh
-#CMD ["/usr/bin/supervisord -c /etc/supervisord.d/supervisord.conf"]
-CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-#CMD ["/usr/bin/supervisord", "-n"]
-#CMD ["/bin/supervisord"]
-#CMD /start.sh
+RUN chmod +x /start.sh
+CMD /start.sh
