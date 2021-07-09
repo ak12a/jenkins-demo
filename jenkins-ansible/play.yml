@@ -1,0 +1,6 @@
+- name: Test Playbook using jenkins and ansible
+  hosts: centos
+
+  tasks:
+    - shell: echo "Hello From jenkins & Ansible test" > /tmp/ansible-out
+  
