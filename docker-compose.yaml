@@ -3,9 +3,12 @@ services:
    jenkins:
         container_name: jenkins
         image: jenkins-ansible
+<<<<<<< HEAD
         deploy:
          restart_policy:
            condition: on-failure
+=======
+>>>>>>> bdb1c09f8b4d754a2d4f81abb1307af26d0add7d
         build:
            context: jenkins-ansible
         ports: 
@@ -29,9 +32,12 @@ services:
    web:
       container_name: web
       image: ansible-web 
+<<<<<<< HEAD
       deploy:
          restart_policy:
            condition: on-failure
+=======
+>>>>>>> bdb1c09f8b4d754a2d4f81abb1307af26d0add7d
       build:
           context: jenkins-ansible/web/
       networks:

@@ -4,4 +4,8 @@ ansible_connection= ssh
 
 [devops]
 centos ansible_host=centos-ssh ansible_user=arvind ansible_private_key_file=/var/jenkins_home/ansible/arvind
+<<<<<<< HEAD
 web ansible_host=web ansible_user=arvind ansible_private_key_file=/var/jenkins_home/ansible/arvind
+=======
+
+>>>>>>> bdb1c09f8b4d754a2d4f81abb1307af26d0add7d
