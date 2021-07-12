@@ -3,6 +3,9 @@ services:
    jenkins:
         container_name: jenkins
         image: jenkins-ansible
+        deploy:
+         restart_policy:
+           condition: on-failure
         build:
            context: jenkins-ansible
         ports: 
@@ -14,6 +17,9 @@ services:
    centos-ssh:
         container_name: centos-ssh
         image: centos-ssh
+        deploy:
+         restart_policy:
+           condition: on-failure
         build:
            context: centos
         networks: 
@@ -23,6 +29,9 @@ services:
    web:
       container_name: web
       image: ansible-web 
+      deploy:
+         restart_policy:
+           condition: on-failure
       build:
           context: jenkins-ansible/web/
       networks:
@@ -33,6 +42,9 @@ services:
    database:
        container_name: db
        image: mysql:5.7
+       deploy:
+         restart_policy:
+           condition: on-failure
        environment:
            - "MYSQL_ROOT_PASSWORD=redhat"
        volumes:
