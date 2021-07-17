@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages{
+        stage('Multi-stage in single stage') {
+            steps { 
+                 sh 'echo "My first Pipeline"'
+                 sh '''
+                   echo 'This is my second Line'
+                   echo 'By the way i can not do more stuff here'
+                 ls -ltrh
+                 '''
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    environment {
+        NAME= 'ARVIND'
+        LAST_NAME = 'KUMAR'
+    }
+    stages {
+        stage('Print environment') {
+            steps {
+                sh 'echo My name is $NAME $LAST_NAME'
+            }
+        }
+    }
+}

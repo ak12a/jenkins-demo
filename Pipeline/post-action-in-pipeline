@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    stages{
+        stage(' Post Action') {
+            steps {
+                sh ' echo "Fail"; exit 1'
+            }
+        }
+    }
+ post{
+     always{
+         echo 'i will be always get executed'
+     }
+    success{
+        echo 'i will only will get executed if this success'
+    } 
+   failure{
+       echo 'i wil only get executed if this fails'
+   } 
+   unstable{
+       echo 'i will only execute when this is unstable'
+   }
+ }   
+}
+############################################### 2nd Example #################
+pipeline {
+    agent any
+
+    stages{
+        stage(' Post Action') {
+            steps {
+                sh ' echo  "i am good now" '
+            }
+        }
+    }
+ post{
+     always{
+         echo 'i will be always get executed'
+     }
+    success{
+        echo 'i will only will get executed if this success'
+    } 
+   failure{
+       echo 'i wil only get executed if this fails'
+   } 
+   unstable{
+       echo 'i will only execute when this is unstable'
+   }
+ }   
+}

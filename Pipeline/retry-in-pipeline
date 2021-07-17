@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Retry test') {
+          steps {
+             retry(3)  {
+                 sh '''
+                 echo "Hello World"
+                 date
+                 '''
+              sh 'I am not a robot'
+              
+          }
+        }
+
+        }
+    }
+}
