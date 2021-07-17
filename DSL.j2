@@ -1,0 +1,11 @@
+job('New_DSL_JOB') {
+
+ 
+  description('This is my First DSL Jb') 
+  
+  parameters {
+    stringParam( 'Planet', defaultValue = 'world', description = 'This is my world')
+    booleanParm(' FLAG', true)
+    choiceParm('OPTION', ['option 1 (default)', 'option 2', 'option 3'])
+    }
+} 
